@@ -9,15 +9,12 @@ public class SavePrefs : MonoBehaviour
     public static string[] stateitem = new string[4];
 
     
-    
-    //Shop shop = new Shop();
 
     private /*static*/ readonly string[] keys = new string[] { "MyGame", "MyGame1", "MyGame2", "MyGame3", "MyGame4" };
 
 
     public /*static*/ void Save()
     {
-        //shop.ChangeStateWrite();
         PlayerPrefs.SetInt(keys[0], moneyToSave);
         PlayerPrefs.SetString(keys[1], stateitem[0]);
         PlayerPrefs.SetString(keys[2], stateitem[1]);

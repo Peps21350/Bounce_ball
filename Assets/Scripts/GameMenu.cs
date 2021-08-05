@@ -44,14 +44,12 @@ public class GameMenu : MonoBehaviour
 
         if (GUI.Button(new Rect(5, 200, windowRect.width - 10, 30), "Restart"))
         {
-            //Application.LoadLevel(1);
             SceneManager.LoadScene("SampleScene");
             show = false;
         }
 
         if (GUI.Button(new Rect(5, 240, windowRect.width - 10, 30), "Exit"))
         {
-            //Application.Quit();
             SceneManager.LoadScene("Main_menu");
             Shop.counterRight = 0;
             show = false;
@@ -71,14 +69,12 @@ public class GameMenu : MonoBehaviour
 
         if (GUI.Button(new Rect(5, 220, windowRect.width - 10, 30), "Restart"))
         {
-            //Application.LoadLevel(1);
             SceneManager.LoadScene("SampleScene");
             show = false;
         }
 
         if (GUI.Button(new Rect(5, 260, windowRect.width - 10, 30), "Exit"))
         {
-            //Application.Quit();
             SceneManager.LoadScene("Main_menu");
             show = false;
         }
@@ -90,14 +86,12 @@ public class GameMenu : MonoBehaviour
 
         if (GUI.Button(new Rect(5, 200, windowRect.width - 10, 30), "New level"))
         {
-            //Application.LoadLevel(1);
             SceneManager.LoadScene("SampleScene");
             show = false;
         }
 
         if (GUI.Button(new Rect(5, 240, windowRect.width - 10, 30), "Exit"))
         {
-            //Application.Quit();
             SceneManager.LoadScene("Main_menu");
             Shop.counterRight = 0;
             show = false;

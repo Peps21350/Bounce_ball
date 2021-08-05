@@ -23,7 +23,6 @@ public class Shop : MonoBehaviour
 
     SavePrefs sp = new SavePrefs();
 
-    //public static ChangeMaterials instance;
     private float shag = -252;
     private static int variable = 100;
 
