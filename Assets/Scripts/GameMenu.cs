@@ -51,7 +51,7 @@ public class GameMenu : MonoBehaviour
         if (GUI.Button(new Rect(5, 240, windowRect.width - 10, 30), "Exit"))
         {
             SceneManager.LoadScene("Main_menu");
-            Shop.counterRight = 0;
+            Shop.counter_Right = 0;
             show = false;
         }
     }
@@ -93,7 +93,7 @@ public class GameMenu : MonoBehaviour
         if (GUI.Button(new Rect(5, 240, windowRect.width - 10, 30), "Exit"))
         {
             SceneManager.LoadScene("Main_menu");
-            Shop.counterRight = 0;
+            Shop.counter_Right = 0;
             show = false;
         }
     }

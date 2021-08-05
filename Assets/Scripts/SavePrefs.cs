@@ -31,10 +31,10 @@ public class SavePrefs : MonoBehaviour
     {
         Load();
         PlayerMecanics.money = moneyToSave;
-        Shop.stateBuying[0] = stateitem[0];
-        Shop.stateBuying[1] = stateitem[1];
-        Shop.stateBuying[2] = stateitem[2];
-        Shop.stateBuying[3] = stateitem[3];
+        Shop.state_buying[0] = stateitem[0];
+        Shop.state_buying[1] = stateitem[1];
+        Shop.state_buying[2] = stateitem[2];
+        Shop.state_buying[3] = stateitem[3];
 
 
     }

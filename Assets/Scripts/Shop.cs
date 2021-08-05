@@ -15,11 +15,10 @@ public class Shop : MonoBehaviour
     public Button Buy;
     public Transform ItemsPosition;
 
-    public static string[] stateBuying = new string[4];
-
-
-    public int CountItems;
-    public static int counterRight = 0; //currentItem
+    public static string[] state_buying = new string[4];
+    
+    public int count_items;
+    public static int counter_Right = 0; //currentItem
 
     SavePrefs sp = new SavePrefs();
 
@@ -27,12 +26,9 @@ public class Shop : MonoBehaviour
     private static int variable = 100;
 
     Price[] pr = new Price[4];
-
-
-
+    
     public ArrayList listPrice = new ArrayList();
-
-
+    
     public void ChangeStateWrite()
     {
         SavePrefs.stateitem[0] = Convert.ToString(pr[0].stateBuying);
@@ -42,13 +38,10 @@ public class Shop : MonoBehaviour
     }
     public void ChangeStateItems()
     {
-
-
-        pr[0] = new Price(0, 30, Convert.ToBoolean(stateBuying[0]));
-        pr[1] = new Price(1, 40, Convert.ToBoolean(stateBuying[1]));
-        pr[2] = new Price(1, 50, Convert.ToBoolean(stateBuying[2]));
-        pr[3] = new Price(1, 60, Convert.ToBoolean(stateBuying[3]));
-
+        pr[0] = new Price(0, 30, Convert.ToBoolean(state_buying[0]));
+        pr[1] = new Price(1, 40, Convert.ToBoolean(state_buying[1]));
+        pr[2] = new Price(1, 50, Convert.ToBoolean(state_buying[2]));
+        pr[3] = new Price(1, 60, Convert.ToBoolean(state_buying[3]));
     }
  
     private void Start()
@@ -59,16 +52,15 @@ public class Shop : MonoBehaviour
         AddPrice();
         ShowLock();
         
-
-        counterRight = 0;
+        counter_Right = 0;
     }
 
     public void Right()
     {
-        if (counterRight  <= CountItems-2)
+        if (counter_Right  <= count_items-2)
         {
-            counterRight++;
-            VisibleText(counterRight);
+            counter_Right++;
+            VisibleText(counter_Right);
             ShopItems.transform.position = ItemsPosition.position + new Vector3(shag, 0f, 0f);
             ShowLock();
         }
@@ -76,10 +68,10 @@ public class Shop : MonoBehaviour
 
     public void Left()
     {
-        if (counterRight > 0)
+        if (counter_Right > 0)
         {
-            counterRight--;
-            VisibleText(counterRight);
+            counter_Right--;
+            VisibleText(counter_Right);
             ShopItems.transform.position = ItemsPosition.position + new Vector3(-shag, 0f, 0f);
             ShowLock();
         }
@@ -96,15 +88,14 @@ public class Shop : MonoBehaviour
 
     public void OK()//applySkin
     {
-        Price itemShop = (Price)listPrice[counterRight];
+        Price itemShop = (Price)listPrice[counter_Right];
         if (itemShop.stateBuying)
         {
-            variable = counterRight;
+            variable = counter_Right;
             VisibleText(variable);
-            ChangeMaterials.stateMaterials = counterRight;
+            ChangeMaterials.stateMaterials = counter_Right;
             ActiveTextTakenSkin(true);
         }
-
         else
         {
             ActiveTextTakenSkin(false);
@@ -128,7 +119,7 @@ public class Shop : MonoBehaviour
 
     public void ShowLock()//UpdateStateLock
     {
-            Price ob = (Price)listPrice[counterRight];
+            Price ob = (Price)listPrice[counter_Right];
             VisibleElementsAfterBought(!ob.stateBuying);
     }
 
@@ -142,20 +133,19 @@ public class Shop : MonoBehaviour
 
     public void UnlockSkin()//tryToBuySkin
     {
-        Price SomeSkin = (Price)listPrice[counterRight];
+        Price SomeSkin = (Price)listPrice[counter_Right];
         if (PlayerMecanics.money >= SomeSkin.price && SomeSkin.stateBuying == false)
         {
             SavePrefs.moneyToSave -= SomeSkin.price;
             SomeSkin.stateBuying = true;
-            SavePrefs.stateitem[counterRight] = Convert.ToString(SomeSkin.stateBuying);
+            SavePrefs.stateitem[counter_Right] = Convert.ToString(SomeSkin.stateBuying);
             ChangeStateWrite();
             sp.Save();
             sp.LoadMoney();
 
             ShowLock();
         }
-        else { Debug.Log("No money"); }
-
+        else { Debug.Log("No money or u buy this skin"); }
     }
 
     
