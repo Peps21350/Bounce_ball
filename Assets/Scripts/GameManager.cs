@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         movement.enabled = false;
         gmenu.Open(false,false);
         sp.LoadMoney();
-        //Invoke("RestartLevel", restartLevelDelay);
+
     }
 
     public void Pause()
@@ -31,10 +31,7 @@ public class GameManager : MonoBehaviour
         gmenu.Open(true,false);
     }
 
-    //public void RestartLevel()
-    //{
-    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    //}
+
 
     public void Finish()
     {
